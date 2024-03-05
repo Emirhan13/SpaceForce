@@ -48,8 +48,8 @@ public class ShipFire : MonoBehaviour
     {
         if (V_Attack)
         {
-            Instantiate(V_ShipAttack2Bullet, V_ShipAttackPointList[0].position, Quaternion.identity);
-            Instantiate(V_ShipAttack2Bullet, V_ShipAttackPointList[1].position, Quaternion.identity);
+            Instantiate(V_ShipAttack2Bullet, V_ShipAttackPointList[2].position, Quaternion.Euler(180,0,0));
+            Instantiate(V_ShipAttack2Bullet, V_ShipAttackPointList[3].position, Quaternion.Euler(180,0,0));
         }
        
     }
