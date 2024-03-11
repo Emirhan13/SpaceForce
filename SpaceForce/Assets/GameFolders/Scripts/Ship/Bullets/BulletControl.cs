@@ -31,4 +31,24 @@ public class BulletControl : MonoBehaviour
     }
     #endregion
 
+
+
+
+    #region Triggers Funcs
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        Iinteractionable interaction = other.GetComponent<Iinteractionable>();
+        if(interaction != null)
+        {
+            interaction.Interaction(V_BulletDamage);
+            Destroy(gameObject);
+           
+        }
+       
+      
+    }
+
+
+    #endregion
 }

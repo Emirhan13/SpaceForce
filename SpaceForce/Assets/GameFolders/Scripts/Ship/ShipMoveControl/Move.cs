@@ -17,6 +17,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         V_ShipRb = GetComponent<Rigidbody>();
+        
     }
 
     #region Unity Funcs
@@ -36,6 +37,7 @@ public class Move : MonoBehaviour
         {
             V_MoventDirection = Input.GetAxisRaw("Horizontal");
             V_ShipRb.velocity = new Vector2(V_MoventDirection * V_ShipRotationSpeed, V_ShipRb.velocity.y);
+           
             
         }
     }

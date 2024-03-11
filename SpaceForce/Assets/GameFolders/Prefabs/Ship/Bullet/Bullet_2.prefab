@@ -149,4 +149,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   V_BulletSpeed: 40
-  V_BulletDamage: 0
+  V_BulletDamage: 40
