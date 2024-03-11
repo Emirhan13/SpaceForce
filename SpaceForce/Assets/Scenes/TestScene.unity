@@ -2695,8 +2695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   V_ShipMove: 1
   V_ShipMoveInput: 0
-  V_ShipRotationSpeed: 10
-  V_ShipMoveSpeed: 6
+  V_ShipRotationSpeed: 4
+  V_ShipMoveSpeed: 5
 --- !u!114 &919132148527097295
 MonoBehaviour:
   m_ObjectHideFlags: 0

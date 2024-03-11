@@ -37,6 +37,7 @@ public class Move : MonoBehaviour
         {
             V_MoventDirection = Input.GetAxisRaw("Horizontal");
             V_ShipRb.velocity = new Vector2(V_MoventDirection * V_ShipRotationSpeed, V_ShipRb.velocity.y);
+            ShipAnimationControl.ShipAniControl.F_FloatAniControl("Rotation", V_MoventDirection);
            
             
         }
