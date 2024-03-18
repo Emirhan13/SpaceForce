@@ -30,14 +30,14 @@ public class Move : MonoBehaviour
     }
     #endregion
 
-    #region Ship Mouve Funcs
+    #region Ship Move Funcs
     private void F_ShipRotationControl()
     {
         if(V_ShipMove)
         {
             V_MoventDirection = Input.GetAxisRaw("Horizontal");
             V_ShipRb.velocity = new Vector2(V_MoventDirection * V_ShipRotationSpeed, V_ShipRb.velocity.y);
-            ShipAnimationControl.ShipAniControl.F_FloatAniControl("Rotation", V_MoventDirection);
+           F_AnimatorControl();
            
             
         }
@@ -55,6 +55,23 @@ public class Move : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W))
         {
             V_ShipMoveInput = !V_ShipMoveInput;
+        }
+    }
+    private void F_AnimatorControl()
+    {
+        switch (V_MoventDirection)
+        {
+            case -1:
+                ShipAnimationControl.ShipAniControl.F_IntergerAniControl("Rotation", -1);
+                break;
+            case 1:
+                ShipAnimationControl.ShipAniControl.F_IntergerAniControl("Rotation", 1);
+                break;
+            case 0:
+                ShipAnimationControl.ShipAniControl.F_IntergerAniControl("Rotation", 0);
+                break;
+            default:
+                break;
         }
     }
     #endregion
