@@ -32,7 +32,7 @@ public class EnemyShipHealth : MonoBehaviour, Iinteractionable
         {
             V_ShipObjectsList[0].SetActive(true);
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1.5f);
             Destroy(gameObject);
         }
         
