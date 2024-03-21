@@ -35,6 +35,7 @@ public class EnemyBullet : MonoBehaviour
         if (interactionable != null)
         {
             interactionable.Interaction(V_BulletDamage);
+            Destroy(gameObject);
         }
     }
     #endregion

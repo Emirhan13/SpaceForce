@@ -148,5 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e27d3fa6281b164aa8541047e7349d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  V_BulletSpeed: 40
+  V_BulletSpeed: 50
   V_BulletDamage: 40

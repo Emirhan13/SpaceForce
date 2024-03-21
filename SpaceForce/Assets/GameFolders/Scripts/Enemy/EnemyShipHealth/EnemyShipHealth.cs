@@ -6,6 +6,8 @@ public class EnemyShipHealth : MonoBehaviour, Iinteractionable
 {
     #region [[SerializeField] Variables
     [SerializeField] float V_ShipHealth;
+    [SerializeField] AudioSource V_ShipSource;
+    [SerializeField] List<AudioClip> V_ShipClipList;
     [SerializeField] List<GameObject> V_ShipObjectsList; // 0- Destroy effect
     #endregion
 
@@ -31,11 +33,15 @@ public class EnemyShipHealth : MonoBehaviour, Iinteractionable
         if(V_ShipHealth <= 0)
         {
             V_ShipObjectsList[0].SetActive(true);
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            yield return new WaitForSeconds(1.5f);
+            F_ShipSourceControl(0);
+            yield return new WaitForSeconds(.5f);
             Destroy(gameObject);
         }
         
+    }
+    private void F_ShipSourceControl(int ClipIndex)
+    {
+        V_ShipSource.PlayOneShot(V_ShipClipList[ClipIndex]);
     }
     #endregion
 }

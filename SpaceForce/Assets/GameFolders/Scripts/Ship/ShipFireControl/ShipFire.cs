@@ -10,6 +10,8 @@ public class ShipFire : MonoBehaviour
     #region [SerializeField] Veriables
     [SerializeField] GameObject V_ShipAttack1Bullet;
     [SerializeField] GameObject V_ShipAttack2Bullet;
+    [SerializeField] AudioSource V_ShipSource;
+    [SerializeField] List<AudioClip> V_ShipClipList;
     [Tooltip("0-1 Bullet 1 point / 2-3 Bullet 2 point")]
     [SerializeField] List<Transform> V_ShipAttackPointList; // 0 = 1 Attack 1 bullet point / 2-3 Attack 2 bullet point
 
@@ -41,6 +43,7 @@ public class ShipFire : MonoBehaviour
         {
             Instantiate(V_ShipAttack1Bullet, V_ShipAttackPointList[0].position, Quaternion.Euler(90, 0, 0));
             Instantiate(V_ShipAttack1Bullet, V_ShipAttackPointList[1].position, Quaternion.Euler(90, 0, 0));
+            F_FireSoundControl(0);
         }
         
     }
@@ -52,6 +55,10 @@ public class ShipFire : MonoBehaviour
             Instantiate(V_ShipAttack2Bullet, V_ShipAttackPointList[3].position, Quaternion.Euler(180,0,0));
         }
        
+    }
+    private void F_FireSoundControl(int ClipIndex)
+    {
+        V_ShipSource.PlayOneShot(V_ShipClipList[ClipIndex]);
     }
     #endregion
 }

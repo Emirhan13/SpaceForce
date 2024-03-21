@@ -9,23 +9,20 @@ public class EnemyShipAttack : MonoBehaviour
     [SerializeField] GameObject V_Bullet;
     [SerializeField] List<Transform> V_ShipAttackPointList;
     [SerializeField] float V_AttackRate;
+    
     #endregion
 
 
     #region [Private]
     private float V_NextAttack;
     #endregion
-
-
-    #region Unity Funcs
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         F_Attack();
     }
+
+    #region Unity Funcs
+
     #endregion
 
     #region Attack Funcs
@@ -40,4 +37,14 @@ public class EnemyShipAttack : MonoBehaviour
        
     }
     #endregion
+
+    //#region Triggers
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if(other.CompareTag("Player"))
+    //    {
+    //        F_Attack();
+    //    }
+    //}
+    //#endregion
 }

@@ -43,6 +43,7 @@ public class ShipHealth : MonoBehaviour, Iinteractionable
         if (V_ShipHealth <= 0)
         {
             V_ShipDestroyEffect.SetActive(true);
+            F_ShipSourceControl(0);
             yield return new WaitForSeconds(3f);
             Destroy(gameObject);
         }
@@ -59,9 +60,11 @@ public class ShipHealth : MonoBehaviour, Iinteractionable
                 break;
             case 70:
                 V_ShipDamageEffecOjectList[0].SetActive(true);
+                F_ShipSourceControl(0);
                 break;
             case 40:
                 V_ShipDamageEffecOjectList[1].SetActive(true);
+                F_ShipSourceControl(0);
                 break;
             default:
                 break;

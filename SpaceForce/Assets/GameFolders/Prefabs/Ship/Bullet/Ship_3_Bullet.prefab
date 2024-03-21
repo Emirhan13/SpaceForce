@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e27d3fa6281b164aa8541047e7349d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  V_BulletSpeed: 30
+  V_BulletSpeed: 50
   V_BulletDamage: 20
 --- !u!54 &6545441243172570159
 Rigidbody:
