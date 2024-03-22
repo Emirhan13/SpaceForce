@@ -9,6 +9,7 @@ public class EnemyShipAttack : MonoBehaviour
     [SerializeField] GameObject V_Bullet;
     [SerializeField] List<Transform> V_ShipAttackPointList;
     [SerializeField] float V_AttackRate;
+    [SerializeField] float V_ShipSpeed;
     
     #endregion
 
@@ -19,6 +20,7 @@ public class EnemyShipAttack : MonoBehaviour
     private void Update()
     {
         F_Attack();
+        F_ShipMove();
     }
 
     #region Unity Funcs
@@ -35,6 +37,10 @@ public class EnemyShipAttack : MonoBehaviour
             Instantiate(V_Bullet, V_ShipAttackPointList[1].position, Quaternion.Euler(90,0,0));
         }
        
+    }
+    private void F_ShipMove()
+    {
+        transform.Translate(new Vector3(0,0,V_ShipSpeed)*Time.deltaTime);
     }
     #endregion
 

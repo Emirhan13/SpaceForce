@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4923340467058731965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.62}
+  m_LocalPosition: {x: 0, y: 0, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0, b: 0, a: 1}
-  m_Intensity: 5.76
+  m_Intensity: 5.96
   m_Range: 0.68
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -130,8 +130,9 @@ GameObject:
   - component: {fileID: 6071809114426888501}
   - component: {fileID: 1079403845255953189}
   - component: {fileID: 4762044296433803776}
-  - component: {fileID: 4529920132161551235}
   - component: {fileID: 3115806464263404623}
+  - component: {fileID: 4529920132161551235}
+  - component: {fileID: 6530170121454107040}
   m_Layer: 0
   m_Name: Ship_Bullet_1
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -7.434, y: 0.172, z: -2.711}
-  m_LocalScale: {x: 0.12524968, y: 0.3149124, z: 0.117366016}
+  m_LocalScale: {x: 0.2, y: 0.2646, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9104314679319468917}
@@ -228,20 +229,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &4529920132161551235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7851371401126530970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e27d3fa6281b164aa8541047e7349d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  V_BulletSpeed: 30
-  V_BulletDamage: 20
 --- !u!54 &3115806464263404623
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -269,3 +256,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4529920132161551235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7851371401126530970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e27d3fa6281b164aa8541047e7349d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  V_BulletSpeed: 30
+  V_BulletDamage: 20
+--- !u!114 &6530170121454107040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7851371401126530970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f8056f68d32ff4f99e68947b3b0b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  V_Time: 3
+  V_TriggerDestroy: 0

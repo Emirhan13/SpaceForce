@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 6566606810538162575}
   - component: {fileID: 8744776333353228184}
   - component: {fileID: 7864288924664265897}
+  - component: {fileID: 2162889408560465232}
   m_Layer: 0
   m_Name: Enemy_Bullet
   m_TagString: Untagged
@@ -267,5 +268,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428ec66890fe9d647886a3041f528afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  V_BulletSpeed: 20
+  V_BulletSpeed: 50
   V_BulletDamage: 15
+--- !u!114 &2162889408560465232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4381925979559138671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f8056f68d32ff4f99e68947b3b0b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  V_Time: 5
+  V_TriggerDestroy: 0
