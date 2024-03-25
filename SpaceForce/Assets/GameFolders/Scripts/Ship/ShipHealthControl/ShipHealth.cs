@@ -10,7 +10,7 @@ public class ShipHealth : MonoBehaviour, Iinteractionable
     #region [SerializeField]  Variables
     [SerializeField] float V_ShipHealth;
     [SerializeField] GameObject V_ShipDestroyEffect;
-    [SerializeField] List<GameObject> V_ShipDamageEffecOjectList; // 0 - 70 // 1- 50 
+    [SerializeField] List<GameObject> V_ShipDamageEffecOjectList; // 0 - 70 // 1- 50 // 2- Game over panel
     [SerializeField] List<AudioClip> V_ShipDamageClipList;
     [SerializeField] AudioSource V_ShipSource;
     #endregion
@@ -45,6 +45,8 @@ public class ShipHealth : MonoBehaviour, Iinteractionable
             V_ShipDestroyEffect.SetActive(true);
             F_ShipSourceControl(0);
             yield return new WaitForSeconds(3f);
+            V_ShipDamageEffecOjectList[2].SetActive(true);
+            Time.timeScale = 0;
             Destroy(gameObject);
         }
     }

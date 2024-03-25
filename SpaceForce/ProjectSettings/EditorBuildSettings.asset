@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Levels/L_Ship_1.unity
+    guid: 120ccb168d526c74b9b135009ba0159a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 0a9faebf252331d4aa547478f872f72c,
       type: 2}

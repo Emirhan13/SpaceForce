@@ -28,20 +28,21 @@ public class ScoreControl : MonoBehaviour
     {
         V_Score += score;
         V_ScoreTextList[0].text = V_Score.ToString();
-        F_ScoreSave();
+        
     }
     #endregion
     #region Score Display Func
     public void F_ScoreDisplayControl()
     {
-        V_ScoreTextList[0].text = V_Score.ToString();
-        V_ScoreTextList[1].text = PlayerPrefs.GetInt("Score").ToString();
+        V_ScoreTextList[1].text = V_Score.ToString();
+        V_ScoreTextList[2].text = PlayerPrefs.GetInt("Score").ToString();
     }
     #endregion
     #region Score Save Funcs
-    private void F_ScoreSave()
+    public void F_ScoreSave()
     {
         PlayerPrefs.SetInt("Score", V_Score);
+        print("Veri kayýt edildi");
     }
     #endregion
 }
