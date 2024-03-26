@@ -31556,6 +31556,8 @@ GameObject:
   - component: {fileID: 4022975588152403207}
   - component: {fileID: 7561406125541045420}
   - component: {fileID: 3981623659859609133}
+  - component: {fileID: 6951702109770454829}
+  - component: {fileID: 6567931259613463436}
   m_Layer: 7
   m_Name: Ship_1
   m_TagString: Untagged
@@ -31821,6 +31823,32 @@ MonoBehaviour:
   V_ShipDamageClipList:
   - {fileID: 8300000, guid: 11f8b902a8f197a46abf5d5258fff2f3, type: 3}
   V_ShipSource: {fileID: 5059350859479147087}
+--- !u!114 &6951702109770454829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523483038318634984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7758b8f5c21ffb848ad5c5740c33280f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  V_CamObjectList:
+  - {fileID: 1806798523781723276}
+--- !u!114 &6567931259613463436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523483038318634984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960cc6b774315e4a954352c08b2f2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5538900109065135732
 GameObject:
   m_ObjectHideFlags: 0

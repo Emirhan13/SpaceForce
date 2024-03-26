@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipFire : MonoBehaviour
 {
+    public static ShipFire _ShipFire;
     #region [Public] Veriables
     public bool V_Attack = true;
     #endregion
@@ -18,26 +19,12 @@ public class ShipFire : MonoBehaviour
     #endregion
     void Start()
     {
-        
+        _ShipFire = this;
     }
 
    
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            F_ShipFire1Control();
-        }
-        if(Input.GetKeyDown (KeyCode.Mouse1))
-        {
-            F_ShipFire2Control();
-        }
-    }
-
-
-
     #region Ship Fire Func
-    private void F_ShipFire1Control()
+    public void F_ShipFire1Control()
     {
         if(V_Attack)
         {
@@ -47,7 +34,7 @@ public class ShipFire : MonoBehaviour
         }
         
     }
-    private void F_ShipFire2Control()
+    public void F_ShipFire2Control()
     {
         if (V_Attack)
         {

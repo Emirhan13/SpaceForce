@@ -35,6 +35,42 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CamChange"",
+                    ""type"": ""Button"",
+                    ""id"": ""541eb800-7ebf-4a60-a417-31c85453b010"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire_1"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e3bd073-2ae5-4eed-a410-30a2b9432b7d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""30229528-8a0e-4c08-be65-abe3a7744bfe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShipBoost"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e3a1ff0-ae9a-495e-aa57-6a6d7fc3ce40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +128,50 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b911b13-1f7f-440a-b683-a58085de2865"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CamChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79aa8cca-0c6b-49fc-b829-6e381b23417f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d28c0e83-91a2-4c25-9f75-5eae428383b0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e039868c-011b-4c02-8006-2ad21793e595"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipBoost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -118,6 +198,10 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         // Ship
         m_Ship = asset.FindActionMap("Ship", throwIfNotFound: true);
         m_Ship_Move = m_Ship.FindAction("Move", throwIfNotFound: true);
+        m_Ship_CamChange = m_Ship.FindAction("CamChange", throwIfNotFound: true);
+        m_Ship_Fire_1 = m_Ship.FindAction("Fire_1", throwIfNotFound: true);
+        m_Ship_Fire_2 = m_Ship.FindAction("Fire_2", throwIfNotFound: true);
+        m_Ship_ShipBoost = m_Ship.FindAction("ShipBoost", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -180,11 +264,19 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Ship;
     private List<IShipActions> m_ShipActionsCallbackInterfaces = new List<IShipActions>();
     private readonly InputAction m_Ship_Move;
+    private readonly InputAction m_Ship_CamChange;
+    private readonly InputAction m_Ship_Fire_1;
+    private readonly InputAction m_Ship_Fire_2;
+    private readonly InputAction m_Ship_ShipBoost;
     public struct ShipActions
     {
         private @InputControl m_Wrapper;
         public ShipActions(@InputControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Ship_Move;
+        public InputAction @CamChange => m_Wrapper.m_Ship_CamChange;
+        public InputAction @Fire_1 => m_Wrapper.m_Ship_Fire_1;
+        public InputAction @Fire_2 => m_Wrapper.m_Ship_Fire_2;
+        public InputAction @ShipBoost => m_Wrapper.m_Ship_ShipBoost;
         public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -197,6 +289,18 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @CamChange.started += instance.OnCamChange;
+            @CamChange.performed += instance.OnCamChange;
+            @CamChange.canceled += instance.OnCamChange;
+            @Fire_1.started += instance.OnFire_1;
+            @Fire_1.performed += instance.OnFire_1;
+            @Fire_1.canceled += instance.OnFire_1;
+            @Fire_2.started += instance.OnFire_2;
+            @Fire_2.performed += instance.OnFire_2;
+            @Fire_2.canceled += instance.OnFire_2;
+            @ShipBoost.started += instance.OnShipBoost;
+            @ShipBoost.performed += instance.OnShipBoost;
+            @ShipBoost.canceled += instance.OnShipBoost;
         }
 
         private void UnregisterCallbacks(IShipActions instance)
@@ -204,6 +308,18 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @CamChange.started -= instance.OnCamChange;
+            @CamChange.performed -= instance.OnCamChange;
+            @CamChange.canceled -= instance.OnCamChange;
+            @Fire_1.started -= instance.OnFire_1;
+            @Fire_1.performed -= instance.OnFire_1;
+            @Fire_1.canceled -= instance.OnFire_1;
+            @Fire_2.started -= instance.OnFire_2;
+            @Fire_2.performed -= instance.OnFire_2;
+            @Fire_2.canceled -= instance.OnFire_2;
+            @ShipBoost.started -= instance.OnShipBoost;
+            @ShipBoost.performed -= instance.OnShipBoost;
+            @ShipBoost.canceled -= instance.OnShipBoost;
         }
 
         public void RemoveCallbacks(IShipActions instance)
@@ -233,5 +349,9 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
     public interface IShipActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnCamChange(InputAction.CallbackContext context);
+        void OnFire_1(InputAction.CallbackContext context);
+        void OnFire_2(InputAction.CallbackContext context);
+        void OnShipBoost(InputAction.CallbackContext context);
     }
 }

@@ -1,14 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public static Move _MoveControl;
     #region [Public] Veriables
     public bool V_ShipMove = true;
-    public bool V_ShipMoveInput;
     #endregion
     #region [SerializeField] Veriables
     [SerializeField] float V_ShipRotationSpeed;
     [SerializeField] float V_ShipMoveSpeed;
+    [SerializeField] float V_ShipBoostPower;
+    [SerializeField] float V_ShipBoostTime;
     #endregion
     #region [Private] Veriables
     private Rigidbody V_ShipRb;
@@ -17,6 +20,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         V_ShipRb = GetComponent<Rigidbody>();
+        _MoveControl = this;
         
     }
 
@@ -24,8 +28,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         F_ShipRotationControl();
-        F_ShipInputControl();
-        F_ShipMoveControl();
+        
         
     }
     #endregion
@@ -42,21 +45,21 @@ public class Move : MonoBehaviour
             
         }
     }
-    private void F_ShipMoveControl()
+
+    public IEnumerator F_ShipBoostControl()
     {
-        if(V_ShipMoveInput && V_ShipMove)
+        bool Boost = true;
+        if(Boost)
         {
-            transform.Translate(new Vector3(0, 0, V_ShipMoveSpeed) * Time.deltaTime);
-        }
-        
-    }
-    private void F_ShipInputControl()
-    {
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            V_ShipMoveInput = !V_ShipMoveInput;
+            V_ShipRotationSpeed += V_ShipBoostPower;
+            yield return new WaitForSeconds(V_ShipBoostTime);
+            Boost = false;
+            V_ShipRotationSpeed -= V_ShipBoostPower;
+            yield return new WaitForSeconds(5f);
+            Boost = true;
         }
     }
+   
     private void F_AnimatorControl()
     {
         switch (V_MoventDirection)

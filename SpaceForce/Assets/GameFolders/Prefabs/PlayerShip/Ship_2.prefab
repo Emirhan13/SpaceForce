@@ -5283,6 +5283,8 @@ GameObject:
   - component: {fileID: 3010529435312464664}
   - component: {fileID: 906289331522281923}
   - component: {fileID: 8118322092110401280}
+  - component: {fileID: 2542343959873513587}
+  - component: {fileID: 6330670011005846675}
   m_Layer: 7
   m_Name: Ship_2
   m_TagString: Player
@@ -5558,6 +5560,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2542343959873513587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808449001564647042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7758b8f5c21ffb848ad5c5740c33280f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  V_CamObjectList:
+  - {fileID: 1660352115090158077}
+--- !u!114 &6330670011005846675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808449001564647042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960cc6b774315e4a954352c08b2f2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870158508126627459
 GameObject:
   m_ObjectHideFlags: 0
@@ -35196,8 +35224,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5851816103399147054}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1969251, y: 1.3302951e-15, z: -2.354497e-16, w: 0.98041856}
-  m_LocalPosition: {x: -0.00000040754423, y: 1.0768995, z: -2.5725937}
+  m_LocalRotation: {x: 0.19692513, y: 3.0908846e-15, z: 4.6732925e-16, w: 0.98041856}
+  m_LocalPosition: {x: 0, y: 1.0768995, z: -2.5725932}
   m_LocalScale: {x: 0.21367055, y: 0.21367055, z: 0.21367055}
   m_ConstrainProportionsScale: 0
   m_Children:
