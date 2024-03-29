@@ -71,6 +71,15 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""144666c3-bf8d-4dda-ac45-a74d46173337"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""action"": ""ShipBoost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5f462a5-705e-4a94-b2ea-ee06c00af450"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +222,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         m_Ship_Fire_1 = m_Ship.FindAction("Fire_1", throwIfNotFound: true);
         m_Ship_Fire_2 = m_Ship.FindAction("Fire_2", throwIfNotFound: true);
         m_Ship_ShipBoost = m_Ship.FindAction("ShipBoost", throwIfNotFound: true);
+        m_Ship_Pause = m_Ship.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -268,6 +289,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_Ship_Fire_1;
     private readonly InputAction m_Ship_Fire_2;
     private readonly InputAction m_Ship_ShipBoost;
+    private readonly InputAction m_Ship_Pause;
     public struct ShipActions
     {
         private @InputControl m_Wrapper;
@@ -277,6 +299,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         public InputAction @Fire_1 => m_Wrapper.m_Ship_Fire_1;
         public InputAction @Fire_2 => m_Wrapper.m_Ship_Fire_2;
         public InputAction @ShipBoost => m_Wrapper.m_Ship_ShipBoost;
+        public InputAction @Pause => m_Wrapper.m_Ship_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -301,6 +324,9 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @ShipBoost.started += instance.OnShipBoost;
             @ShipBoost.performed += instance.OnShipBoost;
             @ShipBoost.canceled += instance.OnShipBoost;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IShipActions instance)
@@ -320,6 +346,9 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @ShipBoost.started -= instance.OnShipBoost;
             @ShipBoost.performed -= instance.OnShipBoost;
             @ShipBoost.canceled -= instance.OnShipBoost;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IShipActions instance)
@@ -353,5 +382,6 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         void OnFire_1(InputAction.CallbackContext context);
         void OnFire_2(InputAction.CallbackContext context);
         void OnShipBoost(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

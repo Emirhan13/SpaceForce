@@ -9,7 +9,6 @@ public class Move : MonoBehaviour
     #endregion
     #region [SerializeField] Veriables
     [SerializeField] float V_ShipRotationSpeed;
-    [SerializeField] float V_ShipMoveSpeed;
     [SerializeField] float V_ShipBoostPower;
     [SerializeField] float V_ShipBoostTime;
     #endregion
@@ -17,19 +16,18 @@ public class Move : MonoBehaviour
     private Rigidbody V_ShipRb;
     private float V_MoventDirection;
     #endregion
+
+
+    #region Unity Funcs
     void Start()
     {
         V_ShipRb = GetComponent<Rigidbody>();
         _MoveControl = this;
-        
-    }
 
-    #region Unity Funcs
+    }
     void Update()
     {
         F_ShipRotationControl();
-        
-        
     }
     #endregion
 

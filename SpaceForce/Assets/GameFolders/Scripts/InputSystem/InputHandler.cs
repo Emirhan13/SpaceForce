@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,8 +19,9 @@ public class InputHandler : MonoBehaviour
         V_InputControl.Ship.Fire_1.performed += F_Fire1;
         V_InputControl.Ship.Fire_2.performed += F_Fire2;
         V_InputControl.Ship.ShipBoost.performed += F_ShipBoost;
+        V_InputControl.Ship.Pause.performed += F_GamePause;
     }
-
+    #region Input Control Funcs
     private void F_Fire2(InputAction.CallbackContext context)
     {
        if(context.ReadValueAsButton())
@@ -54,10 +52,17 @@ public class InputHandler : MonoBehaviour
            StartCoroutine(Move._MoveControl.F_ShipBoostControl());
         }
     }
+    private void F_GamePause(InputAction.CallbackContext context)
+    {
+        if(context.ReadValueAsButton())
+        {
+            GamePauseControl._gamePause.F_PauseControl();
+        }
+    }
 
 
 
-    #region Input Control Funcs
+  
 
     #endregion
 

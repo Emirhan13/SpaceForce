@@ -17,13 +17,14 @@ public class EnemyShipAttack : MonoBehaviour
     #region [Private]
     private float V_NextAttack;
     #endregion
+
+
+    #region Unity Funcs
     private void Update()
     {
         F_Attack();
         F_ShipMove();
     }
-
-    #region Unity Funcs
 
     #endregion
 
@@ -44,13 +45,5 @@ public class EnemyShipAttack : MonoBehaviour
     }
     #endregion
 
-    //#region Triggers
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if(other.CompareTag("Player"))
-    //    {
-    //        F_Attack();
-    //    }
-    //}
-    //#endregion
+   
 }
